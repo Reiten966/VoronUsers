@@ -40,3 +40,12 @@ gcode:
         {% endif %}
     
     {% endif %}
+
+[gcode_macro SIDE_BARS_FLASHING_RED_BLUE]
+gcode:
+    {% for i in range(1, 15) %}
+        SET_LED LED=side_bars RED=0.5 GREEN=0 BLUE=0
+        G4 P75
+        SET_LED LED=side_bars RED=0 GREEN=0 BLUE=0.5
+        G4 P75
+    {% endfor %}
